@@ -1,0 +1,162 @@
+/* nejsme vcerejsi, pouzivame moderni box model */
+html { box-sizing: border-box; }
+*, :after, :before { box-sizing: inherit; }
+
+
+/* -------------------------------------------------- */
+
+/*
+pouzivame mobile first pristup
+tj. vychozi styly mimo media query jsou pro nejmensi mobilni zarizeni (telefony)
+s pribyvajici sirkou pridavame media query pro...
+tablety:
+@media (min-width: 480px) {
+}
+notebook/pc:
+@media (min-width: 860px) {
+}
+*/
+
+
+body {
+    margin: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    color: white;
+    font-size: 14px;
+    font-weight: 400;
+    text-shadow: 1px 1px 1px black;
+}
+
+.paticka {
+    text-align: center;
+    font-size: 14px;
+    color: silver;
+    text-shadow: 0 0;
+}
+
+.paticka a {
+    color: silver;
+}
+
+
+/* ------------------------------- */
+/* ----- DOLE BUDE TVOJE CSS ----- */
+/* ------------------------------- */
+
+.category,
+.comment {
+    display: inline-block;
+    padding: 10px;
+}
+
+.comment {
+    position: absolute;
+    right: 0;
+}
+
+h1,
+h2 {
+    padding: 10px;
+    margin: 0;
+    position: absolute;
+    bottom: 0;
+    font-family: 'Raleway';
+    font-weight: 800;
+}
+
+h1 {
+    font-size: 28px; /*mobile*/
+}
+
+h2 {
+    font-size: 18px; /*mobile*/
+}
+
+.recipe {
+    border-bottom: 1px solid white;
+    background-repeat: no-repeat; 
+	background-size: cover;
+	background-position: center;
+    position: relative;
+}
+
+.main {
+    background-image: url('images/salat.jpg');
+    min-height: 200px; /*mobile*/
+}
+
+.small {
+    min-height: 90px; /*mobile*/
+}
+
+.sr2  { background-image: url('images/chlebicek.jpg'); }
+.sr3  { background-image: url('images/tacos.jpg'); }
+.sr4  { background-image: url('images/cizrna.jpg'); }
+.sr5  { background-image: url('images/burger.jpg'); }
+
+/*tablet*/
+@media (min-width: 480px) {
+    .category,
+    .comment,
+    h1,
+    h2 {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 36px;
+    }
+    
+    h2 {
+        font-size: 22px;
+    }
+
+    .small-container {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .main {
+        min-height: 250px;
+        width: 100%;
+    }
+    
+    .small {
+        min-height: 150px;
+        width: 50%;
+    }
+
+    .sr2,
+    .sr4 {
+        border-right: 1px solid white;
+    }
+}
+
+/*PC*/
+@media (min-width: 860px) {
+    h1 {
+        font-size: 48px;
+    }
+    
+    h2 {
+        font-size: 28px;
+    }
+
+    .container {
+        display: flex;
+    }
+
+    .small-container {
+        flex-grow: 1;
+    }
+
+    .main {
+        min-height: 400px;
+        width: calc(100% / 3);
+        border-right: 1px solid white;
+    }
+    
+    .small {
+        min-height: 200px;
+    }
+}
